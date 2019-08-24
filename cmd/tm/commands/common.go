@@ -53,6 +53,10 @@ func (d ticketData) ToJSONBytes() []byte {
 	return bs
 }
 
+func (d *ticketData) FromJSONBytes(bs []byte) error {
+	return json.Unmarshal(bs, d)
+}
+
 type qrCode struct {
 	TicketData      []byte `json:"ticket_data"`
 	TicketSignature []byte `json:"ticket_signature"`
@@ -64,6 +68,10 @@ func (d qrCode) ToJSONBytes() []byte {
 		panic(err)
 	}
 	return bs
+}
+
+func (d *qrCode) FromJSONBytes(bs []byte) error {
+	return json.Unmarshal(bs, d)
 }
 
 func hash(bs []byte) (h common.Hash) {
