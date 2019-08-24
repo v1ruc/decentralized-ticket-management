@@ -1,6 +1,10 @@
 # Decentralized event ticket management <!-- omit in toc -->
 
-Digital identity and taking ownership of your data we believe are key things towards mass adoption of de-centralization. While participating at the conference digital identity was raised multiple times. What if a digital identity could not only grant you access to digital world but unify access to physical world as well. This is how we came up with a ticket management dApp idea for hackathons like [EthBerlinZwei](https://twitter.com/ETHBerlin).
+Presenting the idea - [PDF](Decentralized-ticket-management.pdf)
+
+Digital identity and taking back ownership of your data. These two things are the key towards mass adoption of de-centralization. While participating at the Dappcon Berlin 2019 digital identity was raised multiple times. However what if a digital identity could not only grant you access to digital world but unify access to physical world as well.
+
+This project is was prepared during [EthBerlinZwei](https://twitter.com/ETHBerlin) Hackathon 2019.
 
 - [Actors of the dApp](#actors-of-the-dapp)
 - [Workflows](#workflows)
@@ -35,7 +39,7 @@ Digital identity and taking ownership of your data we believe are key things tow
 
 ### Participation validators
 
-1. Asks to show his ticket via Event dApp. A QR generated from _Event Particpant_ digital identity `ticket` data point provided by _Event Organizer_.
+1. Asks to show his ticket via Event dApp. A QR generated from _Event Participant_ digital identity `ticket` data point provided by _Event Organizer_.
 2. Ticket scanner validates QR and makes sure that it was written by the _Event Organizer_ for this Particular digital identity.
 3. _Optional:_ write a fact with an _Event Organizer_ private key to mark that _Participants_ key was used.
 
