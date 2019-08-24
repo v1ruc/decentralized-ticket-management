@@ -5,10 +5,16 @@ ARTIFACTS_DIR := $(if $(ARTIFACTS_DIR),$(ARTIFACTS_DIR),bin)
 PKGS ?= $(shell go list ./...)
 BENCH_FLAGS ?= -benchmem
 
+VERSION := $(if $(TRAVIS_TAG),$(TRAVIS_TAG),$(if $(TRAVIS_BRANCH),$(TRAVIS_BRANCH),development_in_$(shell git rev-parse --abbrev-ref HEAD)))
+COMMIT := $(if $(TRAVIS_COMMIT),$(TRAVIS_COMMIT),$(shell git rev-parse HEAD))
+BUILD_TIME := $(shell TZ=UTC date -u '+%Y-%m-%dT%H:%M:%SZ')
+
+CMD_GO_LDFLAGS := '-X "$(PACKAGE_NAME)/cmd.Version=$(VERSION)" -X "$(PACKAGE_NAME)/cmd.BuildTime=$(BUILD_TIME)" -X "$(PACKAGE_NAME)/cmd.GitHash=$(COMMIT)"'
+
 export GO111MODULE := on
 
 .PHONY: all
-all: lint test
+all: lint test cmd
 
 .PHONY: dependencies
 dependencies:
@@ -35,6 +41,11 @@ lint:
 .PHONY: test
 test:
 	go test -count=1 -tags=dev -timeout 60s -v ./...
+
+.PHONY: cmd
+CMDS ?= $(shell ls -d ./cmd/*/ | xargs -L1 basename | grep -v internal)
+cmd:
+	$(foreach cmd,$(CMDS),go build --ldflags=$(CMD_GO_LDFLAGS) -o $(ARTIFACTS_DIR)/$(cmd) ./cmd/$(cmd);)
 
 .PHONY: bench
 BENCH ?= .
