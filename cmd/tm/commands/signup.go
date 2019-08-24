@@ -15,8 +15,8 @@ import (
 // SignUpCommand handles `signup` command
 type SignUpCommand struct {
 	EventDIDAddress       flag.EthereumAddress         `long:"eventaddr"        required:"true" description:"Ethereum address of event DID contract"`
-	ParticipantDIDAddress flag.EthereumAddress         `long:"myaddr"           required:"true" description:"Ethereum address of participant DID contract"`
-	ParticipantFullName   string                       `long:"myname"           required:"true" description:"Full name of participant"`
+	ParticipantDIDAddress flag.EthereumAddress         `long:"participantaddr"           required:"true" description:"Ethereum address of participant DID contract"`
+	ParticipantFullName   string                       `long:"participantname"           required:"true" description:"Full name of participant"`
 	PrivateKey            flag.ECDSAPrivateKeyFromFile `long:"privatekey"       required:"true" description:"private key filename of participant"`
 	BackendURL            string                       `long:"backendurl"       required:"true" description:"Ethereum backend URL"    default:"https://ropsten.infura.io"`
 	IPFSURL               string                       `long:"ipfsurl"                          description:"IPFS node URL"           default:"https://ipfs.infura.io:5001"`
