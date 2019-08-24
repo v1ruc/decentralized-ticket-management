@@ -1,1 +1,1 @@
-# decentralized-ticket-management
+# Decentralized ticket management
