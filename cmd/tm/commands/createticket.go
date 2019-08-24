@@ -66,7 +66,11 @@ func (c *CreateTicketCommand) Execute(args []string) error {
 	}
 
 	wr := facts.NewPrivateDataWriter(eventOwnerSession, fs)
-	res, err := wr.WritePrivateData(ctx, c.EventDIDAddress.AsCommonAddress(), ticketKey, []byte(ticketQrCode), rand.Reader)
+
+	var factKey [32]byte
+	copy(factKey[:], c.EventDIDAddress.AsCommonAddress().Bytes())
+
+	res, err := wr.WritePrivateData(ctx, c.ParticipantDIDAddress.AsCommonAddress(), factKey, []byte(ticketQrCode), rand.Reader)
 	if err != nil {
 		return errors.Wrap(err, "failed to write ticket data")
 	}

@@ -15,12 +15,10 @@ import (
 
 var (
 	signUpKey [32]byte
-	ticketKey [32]byte
 )
 
 func init() {
 	copy(signUpKey[:], "signup")
-	copy(ticketKey[:], "ticket")
 }
 
 type signUpData struct {
