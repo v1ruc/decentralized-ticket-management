@@ -32,6 +32,10 @@ func (d signUpData) ToJSONBytes() []byte {
 	return bs
 }
 
+func (d *signUpData) FromJSONBytes(bs []byte) error {
+	return json.Unmarshal(bs, d)
+}
+
 func initLogging(level log.Lvl, vmodule string) {
 	glogger := log.NewGlogHandler(log.StreamHandler(os.Stderr, log.TerminalFormat(false)))
 	glogger.Verbosity(level)

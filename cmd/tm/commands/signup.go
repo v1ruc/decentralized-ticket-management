@@ -4,12 +4,12 @@ import (
 	"crypto/rand"
 
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/monetha/go-verifiable-data/cmd/privatedata-exchange/commands/flag"
 	"github.com/monetha/go-verifiable-data/eth"
 	"github.com/monetha/go-verifiable-data/eth/backend/ethclient"
 	"github.com/monetha/go-verifiable-data/facts"
 	"github.com/monetha/go-verifiable-data/ipfs"
 	"github.com/pkg/errors"
-	"github.com/v1ruc/decentralized-ticket-management/cmd/tm/commands/flag"
 )
 
 // SignUpCommand handles `signup` command
