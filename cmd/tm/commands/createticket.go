@@ -3,6 +3,7 @@ package commands
 import (
 	"crypto/rand"
 
+	"github.com/ethereum/go-ethereum/common/hexutil"
 	"github.com/ethereum/go-ethereum/crypto"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/monetha/go-verifiable-data/cmd/privatedata-exchange/commands/flag"
@@ -51,10 +52,10 @@ func (c *CreateTicketCommand) Execute(args []string) error {
 		return errors.Wrap(err, "failed to sign the ticket")
 	}
 
-	ticketQrCode := qrCode{
+	ticketQrCode := hexutil.Encode(qrCode{
 		ticketData:      ticketBytes,
 		ticketSignature: ticketSignature,
-	}.ToJSONBytes()
+	}.ToJSONBytes())
 
 	// writing ticket to participants DID contract
 	eventOwnerSession := e.NewSession(eventOwnerKey)
@@ -65,7 +66,7 @@ func (c *CreateTicketCommand) Execute(args []string) error {
 	}
 
 	wr := facts.NewPrivateDataWriter(eventOwnerSession, fs)
-	res, err := wr.WritePrivateData(ctx, c.EventDIDAddress.AsCommonAddress(), ticketKey, ticketQrCode, rand.Reader)
+	res, err := wr.WritePrivateData(ctx, c.EventDIDAddress.AsCommonAddress(), ticketKey, []byte(ticketQrCode), rand.Reader)
 	if err != nil {
 		return errors.Wrap(err, "failed to write ticket data")
 	}
