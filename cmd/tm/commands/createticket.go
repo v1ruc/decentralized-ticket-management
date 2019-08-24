@@ -21,7 +21,7 @@ type CreateTicketCommand struct {
 	PrivateKey            flag.ECDSAPrivateKeyFromFile `long:"privatekey"       required:"true" description:"private key filename of event owner"`
 	BackendURL            string                       `long:"backendurl"       required:"true" description:"Ethereum backend URL"    default:"https://ropsten.infura.io"`
 	IPFSURL               string                       `long:"ipfsurl"                          description:"IPFS node URL"           default:"https://ipfs.infura.io:5001"`
-	Verbosity             log.Lvl                      `long:"verbosity"                        description:"log verbosity (0-9)"     default:"2"`
+	Verbosity             log.Lvl                      `long:"verbosity"                        description:"log verbosity (0-9)"     default:"3"`
 	VModule               string                       `long:"vmodule"                          description:"log verbosity pattern"`
 }
 
