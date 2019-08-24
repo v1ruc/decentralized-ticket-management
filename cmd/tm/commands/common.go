@@ -3,6 +3,7 @@ package commands
 import (
 	"context"
 	"encoding/json"
+	"golang.org/x/crypto/sha3"
 	"os"
 	"os/signal"
 	"syscall"
@@ -13,15 +14,17 @@ import (
 
 var (
 	signUpKey [32]byte
+	ticketKey [32]byte
 )
 
 func init() {
 	copy(signUpKey[:], "signup")
+	copy(ticketKey[:], "ticket")
 }
 
 type signUpData struct {
-	ParticipantDIDAddress common.Address `json:"did_address"`
-	FullName              string         `json:"full_name"`
+	ParticipantDIDAddress common.Address `json:"participant_did_address"`
+	FullName              string         `json:"participant_full_name"`
 }
 
 func (d signUpData) ToJSONBytes() []byte {
@@ -34,6 +37,39 @@ func (d signUpData) ToJSONBytes() []byte {
 
 func (d *signUpData) FromJSONBytes(bs []byte) error {
 	return json.Unmarshal(bs, d)
+}
+
+type ticketData struct {
+	EventDIDAddress       common.Address `json:"event_did_address"`
+	ParticipantDIDAddress common.Address `json:"participant_did_address"`
+}
+
+func (d ticketData) ToJSONBytes() []byte {
+	bs, err := json.Marshal(d)
+	if err != nil {
+		panic(err)
+	}
+	return bs
+}
+
+type qrCode struct {
+	ticketData      []byte `json:"ticket_data"`
+	ticketSignature []byte `json:"ticket_signature"`
+}
+
+func (d qrCode) ToJSONBytes() []byte {
+	bs, err := json.Marshal(d)
+	if err != nil {
+		panic(err)
+	}
+	return bs
+}
+
+func hash(bs []byte) (h common.Hash) {
+	hw := sha3.NewLegacyKeccak256()
+	hw.Write(bs)
+	hw.Sum(h[:0])
+	return h
 }
 
 func initLogging(level log.Lvl, vmodule string) {
