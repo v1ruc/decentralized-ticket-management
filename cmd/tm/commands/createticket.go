@@ -53,8 +53,8 @@ func (c *CreateTicketCommand) Execute(args []string) error {
 	}
 
 	ticketQrCode := hexutil.Encode(qrCode{
-		ticketData:      ticketBytes,
-		ticketSignature: ticketSignature,
+		TicketData:      ticketBytes,
+		TicketSignature: ticketSignature,
 	}.ToJSONBytes())
 
 	// writing ticket to participants DID contract

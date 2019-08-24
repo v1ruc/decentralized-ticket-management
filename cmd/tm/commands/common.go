@@ -3,10 +3,11 @@ package commands
 import (
 	"context"
 	"encoding/json"
-	"golang.org/x/crypto/sha3"
 	"os"
 	"os/signal"
 	"syscall"
+
+	"golang.org/x/crypto/sha3"
 
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
@@ -53,8 +54,8 @@ func (d ticketData) ToJSONBytes() []byte {
 }
 
 type qrCode struct {
-	ticketData      []byte `json:"ticket_data"`
-	ticketSignature []byte `json:"ticket_signature"`
+	TicketData      []byte `json:"ticket_data"`
+	TicketSignature []byte `json:"ticket_signature"`
 }
 
 func (d qrCode) ToJSONBytes() []byte {
