@@ -12,6 +12,7 @@ type TicketManagementCommand struct {
 	SignUp       SignUpCommand       `command:"signup"         description:"Sign up to participate in event (called by participant)"`
 	SignUpList   SignUpListCommand   `command:"signup-list"    description:"List of registered participants (called by event organizer)"`
 	CreateTicket CreateTicketCommand `command:"create-ticket"  description:"Creates ticket for participant (called by event organizer)"`
+	ReadTicket   ReadTicketCommand   `command:"read-ticket"    description:"Reads ticket for participant (called by participant)"`
 }
 
 // TicketManagement is a prepared command to be used in command line arguments parsing
