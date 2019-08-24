@@ -3,10 +3,8 @@ package commands
 import (
 	"fmt"
 
-	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/log"
 	"github.com/monetha/go-verifiable-data/cmd/privatedata-exchange/commands/flag"
-	"github.com/monetha/go-verifiable-data/contracts"
 	"github.com/monetha/go-verifiable-data/eth"
 	"github.com/monetha/go-verifiable-data/eth/backend/ethclient"
 	"github.com/monetha/go-verifiable-data/facts"
@@ -46,8 +44,7 @@ func (c *ReadTicketCommand) Execute(args []string) error {
 	}
 
 	// reading event owner address
-	didContract := contracts.InitPassportLogicContract(c.EventDIDAddress.AsCommonAddress(), b)
-	eventOwnerAddress, err := didContract.Owner(&bind.CallOpts{Context: ctx})
+	eventOwnerAddress, err := readOwnerAddress(ctx, c.EventDIDAddress.AsCommonAddress(), b)
 	if err != nil {
 		return errors.Wrap(err, "failed to get event owner address")
 	}

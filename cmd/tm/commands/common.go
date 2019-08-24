@@ -7,10 +7,12 @@ import (
 	"os/signal"
 	"syscall"
 
-	"golang.org/x/crypto/sha3"
-
+	"github.com/ethereum/go-ethereum/accounts/abi/bind"
 	"github.com/ethereum/go-ethereum/common"
 	"github.com/ethereum/go-ethereum/log"
+	"github.com/monetha/go-verifiable-data/contracts"
+	"github.com/monetha/go-verifiable-data/eth/backend"
+	"golang.org/x/crypto/sha3"
 )
 
 var (
@@ -91,4 +93,10 @@ func createCtrlCContext() context.Context {
 	}()
 
 	return ctx
+}
+
+func readOwnerAddress(ctx context.Context, contractAddress common.Address, backend backend.Backend) (ownerAddress common.Address, err error) {
+	didContract := contracts.InitPassportLogicContract(contractAddress, backend)
+	ownerAddress, err = didContract.Owner(&bind.CallOpts{Context: ctx})
+	return
 }
