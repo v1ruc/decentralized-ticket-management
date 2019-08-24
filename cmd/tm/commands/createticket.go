@@ -77,5 +77,5 @@ func (c *CreateTicketCommand) Execute(args []string) error {
 
 	log.Info("Ticket info", "tx_hash", res.TransactionHash.Hex(), "ipfs_hash", res.DataIPFSHash)
 
-	panic("implement me")
+	return nil
 }

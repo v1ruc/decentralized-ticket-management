@@ -81,13 +81,13 @@ func (c *SignUpListCommand) Execute(args []string) error {
 	for _, txRaw := range signUpChanges {
 		decryptedSignUpData, err := rd.ReadHistoryPrivateData(ctx, eventOwnerKey, eventPassportAddress, txRaw.TxHash)
 		if err != nil {
-			log.Warn("failed to read private data", "tx_hash", txRaw.TxHash)
+			log.Warn("failed to read private data", "tx_hash", txRaw.TxHash, "err", err)
 			continue
 		}
 
 		d := &signUpData{}
 		if err := d.FromJSONBytes(decryptedSignUpData); err != nil {
-			log.Warn("failed to parse signup JSON", "bytes", decryptedSignUpData)
+			log.Warn("failed to parse signup JSON", "bytes", decryptedSignUpData, "err", err)
 			continue
 		}
 
