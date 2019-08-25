@@ -1,4 +1,11 @@
-# Decentralized event ticket management <!-- omit in toc -->
+# Decentralized event ticket management <!-- omit in toc --> [![GoDoc][1]][2] [![Build Status][3]][4] [![Go Report Card][5]][6]
+                                                             
+[1]: https://godoc.org/github.com/v1ruc/decentralized-ticket-management?status.svg
+[2]: https://godoc.org/github.com/v1ruc/decentralized-ticket-management
+[3]: https://travis-ci.org/v1ruc/decentralized-ticket-management.svg?branch=master
+[4]: https://travis-ci.org/v1ruc/decentralized-ticket-management
+[5]: https://goreportcard.com/badge/github.com/v1ruc/decentralized-ticket-management
+[6]: https://goreportcard.com/report/github.com/v1ruc/decentralized-ticket-management
 
 [PDF](Decentralized-ticket-management.pdf) presenting the idea.
 
