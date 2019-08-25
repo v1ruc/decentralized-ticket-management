@@ -74,6 +74,10 @@ As any systems there are some prerequisites for further simulation of behavior. 
 ### Setting up simulation
 #### Creating DID of Event Organizer
 
+In order to create DID you need to use `deploy-passport` tool which is a part of Monetha's Decentralized Reputation Framework (Go SDK). Follow [README](https://github.com/monetha/go-verifiable-data) instructions to build the tool.
+
+After that, you can use the tool to create a digital identity. Note: private keys of digital identity owner should be stored in file in plain-hex format.
+
 ```sh
 $ ./deploy-passport \
   -ownerkey ./event-organizer.key \
