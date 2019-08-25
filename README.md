@@ -163,6 +163,17 @@ WARN [08-24|20:42:43.850] Done.
 
 ### Participation in the event
 
+Decentralized ticket management tool is implemented as a single-binary tool called `tm`.
+
+To build it just run commands (make sure you have [Go 1.12](https://golang.org/dl/) installed):
+
+```bash
+make dependencies
+make
+```
+
+After the executable file is built, it can be found in the directory `./bin/`.
+
 #### Participant 1 sign up
 
 ```bash
