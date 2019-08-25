@@ -1,4 +1,11 @@
-# Decentralized event ticket management <!-- omit in toc -->
+# Decentralized event ticket management <!-- omit in toc --> [![GoDoc][1]][2] [![Build Status][3]][4] [![Go Report Card][5]][6]
+                                                             
+[1]: https://godoc.org/github.com/v1ruc/decentralized-ticket-management?status.svg
+[2]: https://godoc.org/github.com/v1ruc/decentralized-ticket-management
+[3]: https://travis-ci.org/v1ruc/decentralized-ticket-management.svg?branch=master
+[4]: https://travis-ci.org/v1ruc/decentralized-ticket-management
+[5]: https://goreportcard.com/badge/github.com/v1ruc/decentralized-ticket-management
+[6]: https://goreportcard.com/report/github.com/v1ruc/decentralized-ticket-management
 
 [(Decentralized ticket management intro.pdf](Decentralized-ticket-management.pdf) presenting the idea.
 
@@ -68,8 +75,15 @@ As any systems there are some prerequisites for further simulation of behavior. 
 ### Setting up simulation
 #### Creating DID of Event Organizer
 
+In order to create DID you need to use `deploy-passport` tool which is a part of Monetha's Decentralized Reputation Framework (Go SDK). Follow [README](https://github.com/monetha/go-verifiable-data) instructions to build the tool.
+
+After that, you can use the tool to create a digital identity. Note: private keys of digital identity owner should be stored in file in plain-hex format.
+
 ```sh
-$ ./deploy-passport -ownerkey ./event-organizer.key -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
+$ ./deploy-passport \
+  -ownerkey ./event-organizer.key \
+  -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 \
+  -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
 ```
 
 ```sh
@@ -92,7 +106,10 @@ WARN [08-24|20:33:43.364] Done.
 #### Creating DID of Participant 1
 
 ```sh
-$ ./deploy-passport -ownerkey ./event-participant1.key -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
+$ ./deploy-passport \
+  -ownerkey ./event-participant1.key \
+  -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 \
+  -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
 ```
 
 ```sh
@@ -115,7 +132,10 @@ WARN [08-24|20:39:28.778] Done.
 #### Creating DID of Participant 2
 
 ```sh
-$ ./deploy-passport -ownerkey ./event-participant2.key -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
+$ ./deploy-passport \
+  -ownerkey ./event-participant2.key \
+  -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 \
+  -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
 ```
 
 ```sh
