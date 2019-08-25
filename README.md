@@ -68,7 +68,10 @@ As any systems there are some prerequisites for further simulation of behavior. 
 #### Creating DID of Event Organizer
 
 ```sh
-$ ./deploy-passport -ownerkey ./event-organizer.key -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
+$ ./deploy-passport \
+  -ownerkey ./event-organizer.key \
+  -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 \
+  -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
 ```
 
 ```sh
@@ -91,7 +94,10 @@ WARN [08-24|20:33:43.364] Done.
 #### Creating DID of Participant 1
 
 ```sh
-$ ./deploy-passport -ownerkey ./event-participant1.key -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
+$ ./deploy-passport \
+  -ownerkey ./event-participant1.key \
+  -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 \
+  -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
 ```
 
 ```sh
@@ -114,7 +120,10 @@ WARN [08-24|20:39:28.778] Done.
 #### Creating DID of Participant 2
 
 ```sh
-$ ./deploy-passport -ownerkey ./event-participant2.key -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
+$ ./deploy-passport \
+  -ownerkey ./event-participant2.key \
+  -factoryaddr 0x35Cb95Db8E6d56D1CF8D5877EB13e9EE74e457F2 \
+  -backendurl https://ropsten.infura.io/v3/e82ae97170b0425d99684d6767e20041
 ```
 
 ```sh
