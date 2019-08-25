@@ -45,6 +45,8 @@ This project was prepared during [EthBerlinZwei](https://twitter.com/ETHBerlin) 
 - _Event Volunteers, Security-check/Canteen worker etc._
   - Scan participants' QR code upon request to validate the ticket
 
+**Important** All data being stored off-chain in IPFS and encrypted according Monetha Platform [private data exchange protocol](https://github.com/monetha/reputation-layer/blob/master/private-data.md)
+
 ## Workflows
 
 ### Event Participant
