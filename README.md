@@ -1,10 +1,11 @@
 # Decentralized event ticket management <!-- omit in toc -->
 
-[PDF](Decentralized-ticket-management.pdf) presenting the idea.
+[(Decentralized ticket management intro.pdf](Decentralized-ticket-management.pdf) presenting the idea.
 
-Digital identity and taking back ownership of your data. These two things are the key towards mass adoption of de-centralization. While participating at the Dappcon Berlin 2019 digital identity was raised multiple times. However what if a digital identity could not only grant you access to digital world but unify access to physical world as well.
+There is a big focus on Wallet implementations, but what if we would extend it to Digital Identity which might drive mass adoption of de-centralization.
+We suggest that community starts using blockchain in their life e.g. event organization (bit bot limited to),
 
-This project is was prepared during [EthBerlinZwei](https://twitter.com/ETHBerlin) Hackathon 2019.
+This project was prepared during [EthBerlinZwei](https://twitter.com/ETHBerlin) Hackathon 2019.
 
 - [Actors of the dApp](#actors-of-the-dapp)
 - [Workflows](#workflows)
@@ -28,12 +29,12 @@ This project is was prepared during [EthBerlinZwei](https://twitter.com/ETHBerli
 
 ## Actors of the dApp
 
-- _Event Participant_. Person who is willing to participate in the event.
-  - Creates or provides his digital identity wallet where event related information will be stored.
-  - Submits his will to participate in the event.
+- _Event Participant_. Person who is willing to participate in the event (hackathon or conference).
+  - Manages his digital identity wallet where event related information will be stored.
+  - Signs up for the event.
 - _Event Organizer_.
-  - Creates a digital identity for the event.
-  - Review a list of participants entering the event.
+  - Manages digital identity of the event.
+  - Manages event participants.
 - _Event Volunteers, Security-check/Canteen worker etc._
   - Scan participants' QR code upon request to validate the ticket
 
@@ -41,18 +42,18 @@ This project is was prepared during [EthBerlinZwei](https://twitter.com/ETHBerli
 
 ### Event Participant
 
-1. Each _Event Participant_ during signup creates a [digital identity](https://github.com/monetha/js-verifiable-data#Deploying-digital-identity) (aka Passport) which is later to be used to collect a ticket for the event.
-2. Upon submition of data of participation a sensitive data fact is being written into the digital identity of _Event Organizer_
+1. Each _Event Participant_ during (or before) signup creates a [digital identity](https://github.com/monetha/js-verifiable-data#Deploying-digital-identity) which is later to be used to store a ticket for the event.
+2. Upon submition of data of participation a ticket information is being stored into the digital identity of _Event Organizer_
 
 ### Event Organizer
 
-1. Monitors a list of newly registered _Event Participant_ and creates tickets by a click of a button.
-2. Creating a ticket writes a sensitive fact to the digital identity of the _Event Participant_. A sensitive fact contains a signed _participant's information_ (provided during signup) + _address of event organizer's digital identity_.
+1. Monitors a list of newly registered _Event Participant_ and issues tickets for those who performed a payment.
+2. During ticket issuing information is stored to the digital identity of the _Event Participant_. Stored data contains a signed _participant's information_ (provided during signup) + _address of event organizer's digital identity_.
 
 ### Participation validators (aka Volunteers)
 
-1. Asks _Participant_ to show his ticket via Event dApp as a result QR code is shown on participants dApp. A QR code contains a signature of _Event Organizer_ and signed data which is Organizer's DID address and Participant's DID address.
-2. Ticket scanner validates the signature and makes sure that it was written by the _Event Organizer_ for a correct Participant's DID address.
+1. _Participant_ shows his ticket as QR code. A QR code contains a signature of _Event Organizer_ and signed ticket information which is Organizer's DID address and Participant's DID address.
+2. Ticket scanner validates the signature and verifies that it was submited by the _Event Organizer_ for a specified Participant's DID address.
 
 ## Implementation
 
