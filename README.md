@@ -58,7 +58,7 @@ This project is was prepared during [EthBerlinZwei](https://twitter.com/ETHBerli
 
 We do understand the necessity of the good UI/UX. However all we did come up during Hackathon is the command line utility that resembles the [workflows](#workflows) that would be a part of the dApp.
 
-Command-line utility is using **Ropsten** testnet and [scanner.monetha.io](https://scanner.monetha.io) in order to explore the written facts (aka data points) into digital identities.
+Command-line utility is using **Ropsten** testnet and [scanner.monetha.io](https://scanner.monetha.io) can be used in order to explore digital identities and facts that are written there (aka data points).
 
 ![UI meme](assets/ui-meme.jpg)
 
