@@ -7,7 +7,7 @@
 [5]: https://goreportcard.com/badge/github.com/v1ruc/decentralized-ticket-management
 [6]: https://goreportcard.com/report/github.com/v1ruc/decentralized-ticket-management
 
-[(Decentralized ticket management intro.pdf](Decentralized-ticket-management.pdf) presenting the idea.
+[Decentralized ticket management intro.pdf](Decentralized-ticket-management.pdf) presenting the idea.
 
 There is a big focus on Wallet implementations, but what if we would extend it to Digital Identity which might drive mass adoption of de-centralization.
 We suggest that community starts using blockchain in their life e.g. event organization (bit bot limited to),
